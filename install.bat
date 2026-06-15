@@ -28,7 +28,7 @@ echo   claude --plugin-dir ./
 echo.
 echo ─── 方式 2：永久安装 ───
 echo   git clone https://github.com/Jonoo-no/paper-cowork.git %%USERPROFILE%%\paper-cowork-plugin
-echo   xcopy /E /I "%%USERPROFILE%%\paper-cowork-plugin\skills\*" "%%APPDATA%%\Claude\skills\"
+echo   xcopy /E /I "%%USERPROFILE%%\paper-cowork-plugin\skills\*" "%%USERPROFILE%%\.claude\skills\"
 echo.
 echo.
 echo 可选依赖：
