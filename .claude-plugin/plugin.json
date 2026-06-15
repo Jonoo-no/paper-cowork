@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "本科毕业论文写作流水线——从选题到终稿的完整助手",
   "author": {
-    "name": "paper-cowork"
+    "name": "Jonoo-no",
+    "url": "https://github.com/Jonoo-no"
   },
+  "homepage": "https://github.com/Jonoo-no/paper-cowork",
+  "repository": "https://github.com/Jonoo-no/paper-cowork",
   "license": "MIT",
   "keywords": ["本科论文", "毕业论文", "学术写作", "论文助手"]
 }

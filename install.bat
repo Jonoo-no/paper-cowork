@@ -30,7 +30,7 @@ echo   xcopy /E /I "%~dp0agents" "%USERPROFILE%\.claude\agents\paper-cowork\"
 echo   echo 插件已安装，重启 Claude Code 后可用
 echo.
 echo ─── 方式 3：从 GitHub 克隆 ───
-echo   git clone https://github.com/你的用户名/paper-cowork.git
+echo   git clone https://github.com/Jonoo-no/paper-cowork.git
 echo   claude --plugin-dir ./paper-cowork
 echo.
 echo.
