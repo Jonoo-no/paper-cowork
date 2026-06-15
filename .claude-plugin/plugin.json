@@ -9,5 +9,6 @@
   "homepage": "https://github.com/Jonoo-no/paper-cowork",
   "repository": "https://github.com/Jonoo-no/paper-cowork",
   "license": "MIT",
+  "skills": ["./skills/"],
   "keywords": ["本科论文", "毕业论文", "学术写作", "论文助手"]
 }

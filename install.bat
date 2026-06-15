@@ -8,40 +8,36 @@ echo.
 echo 正在检查环境...
 echo.
 
-REM 检查 Claude Code 是否安装
+REM 检查 Claude Code
 where claude >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
     echo [⚠] 未检测到 Claude Code。
-    echo     请先安装 Claude Code: https://code.claude.com
-    echo.
+    echo     请先安装: https://code.claude.com
     pause
     exit /b 1
 )
 
 echo [✅] Claude Code 已安装
 echo.
-echo 安装方式（任选一种）：
+echo 安装方式：
 echo.
-echo ─── 方式 1：临时加载（推荐先试用） ───
-echo   claude --plugin-dir %~dp0
+echo ─── 方式 1：Plugin 模式（推荐先试用）───
+echo   git clone https://github.com/Jonoo-no/paper-cowork.git
+echo   cd paper-cowork
+echo   claude --plugin-dir ./
 echo.
 echo ─── 方式 2：永久安装 ───
-echo   xcopy /E /I "%~dp0agents" "%USERPROFILE%\.claude\agents\paper-cowork\"
-echo   echo 插件已安装，重启 Claude Code 后可用
-echo.
-echo ─── 方式 3：从 GitHub 克隆 ───
-echo   git clone https://github.com/Jonoo-no/paper-cowork.git
-echo   claude --plugin-dir ./paper-cowork
+echo   git clone https://github.com/Jonoo-no/paper-cowork.git %%USERPROFILE%%\paper-cowork-plugin
+echo   xcopy /E /I "%%USERPROFILE%%\paper-cowork-plugin\skills\*" "%%APPDATA%%\Claude\skills\"
 echo.
 echo.
-echo 可选依赖安装（用于自动生成格式化 .docx）：
+echo 可选依赖：
 echo   pip install python-docx
 echo.
-echo 推荐安装的辅助技能：
-echo   1. nature-figure - 图表生成
-echo   2. aigc-reduce - 论文降重
-echo   3. nature-academic-search - 英文文献检索
+echo 推荐辅助技能：
+echo   https://github.com/Yuan1z0825/nature-skills
+echo   https://github.com/xiaofenggan01/aigc-reduce
 echo.
-echo 安装完成后，在 Claude Code 中运行 /启动论文工作区
+echo 安装后重启 Claude，输入 / 即可看到 slash command
 echo.
 pause
