@@ -6,9 +6,7 @@
 
 ## paper-cowork 的安装方式
 
-安装的核心是让 Claude Code 识别到两个 slash command：
-- `/setup-paper-workspace`（初始化工作区）
-- `/paper-pipeline`（论文流水线）
+安装的核心是让 Claude Code 识别到 slash command：`/paper-cowork`
 
 ### 方式 1：Plugin 模式加载（推荐先试用）
 
@@ -22,35 +20,17 @@ claude --plugin-dir ./
 
 ### 方式 2：永久安装（注册 slash command）
 
-如果不想每次指定 `--plugin-dir`，可以在 `.claude/skills/` 下注册 slash command：
+如果不想每次指定 `--plugin-dir`，可以在 `.claude/skills/` 下注册：
 
 ```bash
 # 克隆到固定位置
 git clone https://github.com/Jonoo-no/paper-cowork.git ~/paper-cowork-plugin
 
-# 手动创建 SKILL.md（每个技能一个）
-mkdir -p ~/.claude/skills/setup-paper-workspace
-cat > ~/.claude/skills/setup-paper-workspace/SKILL.md << 'EOF'
----
-name: setup-paper-workspace
-description: 一次性初始化论文工作区
----
-When invoked, read `~/paper-cowork-plugin/agents/setup-paper-workspace.md` first.
-Treat that file as the governing workflow.
-EOF
-
-mkdir -p ~/.claude/skills/paper-pipeline
-cat > ~/.claude/skills/paper-pipeline/SKILL.md << 'EOF'
----
-name: paper-pipeline
-description: 论文写作核心流水线
----
-When invoked, read `~/paper-cowork-plugin/agents/paper-pipeline.md` first.
-Treat that file as the governing workflow.
-EOF
+# 一键复制 SKILL.md
+cp -r ~/paper-cowork-plugin/skills/* ~/.claude/skills/
 ```
 
-重启 Claude Code 后，`/setup-paper-workspace` 和 `/paper-pipeline` 就会出现在 slash commands 中。
+重启 Claude Code 后，`/paper-cowork` 就会出现在 slash commands 中。
 
 > 永久安装后，插件目录 `~/paper-cowork-plugin/` 不能删除，因为 SKILL.md 引用了其中的 agent 文件。
 
@@ -124,7 +104,7 @@ pip install python-docx
 claude --plugin-dir ~/paper-cowork-plugin/
 
 # 或检查永久安装
-ls ~/.claude/skills/ | grep -E "setup|paper"
+ls ~/.claude/skills/ | grep paper
 
 # 检查辅助技能
 ls ~/.claude/agents/nature-figure.md && echo "nature-figure OK"
@@ -135,9 +115,10 @@ ls ~/.claude/skills/aigc-reduce/SKILL.md && echo "aigc-reduce OK"
 
 ## 开始使用
 
-在 Claude Code 中依次运行：
+在 Claude Code 中运行：
 
 ```
-第 1 步：/setup-paper-workspace   ← 一次性初始化
-第 2 步：/paper-pipeline          ← 开始论文写作
+/paper-cowork
 ```
+
+**首次运行**自动进入初始化流程（创建工作区、放入模板、检测依赖），之后每次自动从断点继续写作。
