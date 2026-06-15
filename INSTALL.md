@@ -8,6 +8,8 @@
 
 安装的核心是让 Claude Code 识别到 slash command：`/paper-cowork`
 
+> 当前最新版本：**v2.0.0** — 已将旧版两个命令（`/setup-paper-workspace` + `/paper-pipeline`）合并为统一的 `/paper-cowork`。从旧版升级请覆盖安装即可。
+
 ### 方式 1：Plugin 模式加载（推荐先试用）
 
 ```bash
@@ -37,7 +39,7 @@ cp -r ~/paper-cowork-plugin/skills/* ~/.claude/skills/
 ### 方式 3：从 Release 下载 ZIP
 
 1. 打开 [Releases 页面](https://github.com/Jonoo-no/paper-cowork/releases)
-2. 下载最新版本的 Source code (zip)
+2. 下载最新版 **v2.0.0** 的 Source code (zip)
 3. 解压并参照方式 1 或 2 安装
 
 ---
